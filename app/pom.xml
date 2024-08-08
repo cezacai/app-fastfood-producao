@@ -17,8 +17,8 @@
 		<java.version>17</java.version>
 		<maven.compiler.release>17</maven.compiler.release>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <sonar.organization>pedroph23</sonar.organization>
-        <sonar.projectKey>pedroph23_app-fastfood-producao</sonar.projectKey>
+        <sonar.organization>cezacai</sonar.organization>
+        <sonar.projectKey>cezacai_app-fastfood-producao2</sonar.projectKey>
 	</properties>
 	<dependencies>
 		<dependency>
