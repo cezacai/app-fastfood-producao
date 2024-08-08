@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: appfastfood-producao-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: appfastfood-producao
+  template:
+    metadata:
+      labels:
+        app: appfastfood-producao
+    spec:
+      containers:
+        - name: appfastfood-producao
+          image: caikemury/app-fastfood-producao.jar:latest
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: appfastfood-producao-configmap
+            - secretRef:
+                name: app-secret
+          readinessProbe:
+            httpGet:
+              path: /healthCheck   # Rota de verificação de saúde do seu aplicativo
+              port: 8080            # Porta em que o seu aplicativo está ouvindo
+            initialDelaySeconds: 10
+            periodSeconds: 5
